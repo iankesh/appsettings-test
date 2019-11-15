@@ -1,0 +1,123 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Test.Api",
+        "version": "v1"
+    },
+    "host": "api-eu-stage.test.com",
+    "basePath": "/instrument/workflow/v1",
+    "schemes": [
+        "https"
+    ],
+    "securityDefinitions": {
+        "apiKeyHeader": {
+            "type": "apiKey",
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header"
+        },
+        "apiKeyQuery": {
+            "type": "apiKey",
+            "name": "subscription-key",
+            "in": "query"
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ],
+    "paths": {
+        "/workflow": {
+            "post": {
+                "description": "Create a new Workflow",
+                "operationId": "create-workflow",
+                "summary": "Create Workflow",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/{workflowId}/start": {
+            "put": {
+                "description": "Endpoint called to proceed the Workflow",
+                "operationId": "start-workflow",
+                "summary": "Start Workflow",
+                "parameters": [
+                    {
+                        "name": "workflowId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/{workflowId}/widget/activateW": {
+            "post": {
+                "description": "Endpoint called to activate the W ",
+                "operationId": "activate-w",
+                "summary": "Activate W",
+                "parameters": [
+                    {
+                        "name": "workflowId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+
+    },
+    "tags": []
+}
